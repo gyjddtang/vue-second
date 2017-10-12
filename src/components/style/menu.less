@@ -1,0 +1,99 @@
+/**
+ * Created by Mili on 2017/9/21.
+ */
+@time: 1s;
+
+.menuList {
+  .width(100%);
+  .flex();
+
+  .listItem {
+    //transition: height @time;
+
+    .menuBox {
+      .fBox();
+      .height(60px);
+      .paddingL(20px);
+      box-sizing: border-box;
+      cursor: pointer;
+      user-select: none;
+      background: @menuBC;
+
+      .icon {
+        .width(18px);
+
+        &.com {
+          display: block;
+        }
+
+        &.active {
+          display: none;
+        }
+      }
+
+      .text {
+        .flex(1);
+        .font(16px, @menuTC);
+        .marginL(10px);
+      }
+
+      .arrow {
+        .width(0px);
+        .height(0px);
+        .marginR(10px);
+        .border(6px, transparent);
+        border-bottom-width: 0;
+        border-top-color: @menuTC;
+        transition: transform .5s;
+
+        &.active {
+          transform: rotate(180deg);
+        }
+      }
+
+      &:hover {
+        background: @menuHC;
+
+        .icon {
+          &.com {
+            display: none;
+          }
+
+          &.active {
+            display: block;
+          }
+        }
+
+        .text {
+          color: @whiteC;
+        }
+      }
+    }
+  }
+
+  .subMenu {
+    .subListItem {
+      .listItem;
+
+      .menuBox {
+        .paddingL(30px);
+        background: @menuSubBC;
+      }
+    }
+  }
+}
+
+// transition
+//.menu-enter,
+//.menu-leave-to {
+//  opacity: 0;
+//}
+//
+//.menu-enter-active,
+//.menu-leave-active {
+//  transition: opacity @time;
+//}
+//
+//.menu-move {
+//  transition: transform @time;
+//}

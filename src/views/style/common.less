@@ -1,0 +1,139 @@
+/**
+ * Created by Mili on 2017/9/20.
+ */
+
+//预设
+@baseNum: 12px;
+@whiteC: #fff;
+@themeC: #20A0FF;
+@menuBC: #324157;   // 菜单背景
+@menuTC: #8492A6;   // 菜单文本
+@menuHC: #3D506C;   // 菜单hover
+@menuSubBC: #1F2D3D;   // 子菜单背景
+
+/****
+ ** 弹性盒子
+ ** @dire: row | column
+ ** @align: flex-start | center | flex-end
+ ** @justify: flex-start | center | flex-end | space-between | space-around
+****/
+.fBox (@dire: row, @align: center, @justify: space-between) {
+  display: flex;
+  flex-direction: @dire;
+  justify-content: @justify;
+  align-items: @align;
+}
+
+.flex (@flex: 1) {
+  flex: @flex;
+}
+
+//文本
+.font (@size: @baseNum; @color: @whiteC; @line: @size) {
+  font-size: unit(@size / @baseNum, rem);
+  color: @color;
+  line-height: unit(@line / @baseNum, rem);
+}
+
+//大小
+.width (@size) when (ispercentage(@size)) {
+  width: @size;
+}
+
+.width (@size) when (ispixel(@size)) {
+  width: unit(@size / @baseNum, rem);
+}
+
+.height (@size) when (ispercentage(@size)) {
+  height: @size;
+}
+
+.height (@size) when (ispixel(@size)) {
+  height: unit(@size / @baseNum, rem);
+}
+
+.minH (@size) when (ispercentage(@size)) {
+  min-height: @size;
+}
+
+.minH (@size) when (ispixel(@size)) {
+  min-height: unit(@size / @baseNum, rem);
+}
+
+//外边距
+.marginT (@size) {
+  margin-top: unit(@size / @baseNum, rem);
+}
+
+.marginB (@size) {
+  margin-bottom: unit(@size / @baseNum, rem);
+}
+
+.marginL (@size) {
+  margin-left: unit(@size / @baseNum, rem);
+}
+
+.marginR (@size) {
+  margin-right: unit(@size / @baseNum, rem);
+}
+
+.margin (@size1, @size2) when (@size2 = auto) {
+  margin: unit(@size1 / @baseNum, rem) @size2;
+}
+
+.margin (@size1, @size2: 0px) when (ispixel(@size2)) {
+  margin: unit(@size1 / @baseNum, rem) unit(@size2 / @baseNum, rem);
+}
+
+.margin (@size1, @size2, @size3) {
+  margin: unit(@size1 / @baseNum, rem) unit(@size2 / @baseNum, rem) unit(@size3 / @baseNum, rem);
+}
+
+.margin (@size1, @size2, @size3, @size4) {
+  margin: unit(@size1 / @baseNum, rem) unit(@size2 / @baseNum, rem) unit(@size3 / @baseNum, rem) unit(@size4 / @baseNum, rem);
+}
+
+//内边距
+.paddingT (@size) {
+  padding-top: unit(@size / @baseNum, rem);
+}
+
+.paddingB (@size) {
+  padding-bottom: unit(@size / @baseNum, rem);
+}
+
+.paddingL (@size) {
+  padding-left: unit(@size / @baseNum, rem);
+}
+
+.paddingR (@size) {
+  padding-right: unit(@size / @baseNum, rem);
+}
+
+.padding (@size1, @size2) when (@size2 = auto) {
+  padding: unit(@size1 / @baseNum, rem) @size2;
+}
+
+.padding (@size1, @size2: 0px) when (ispixel(@size2)) {
+  padding: unit(@size1 / @baseNum, rem) unit(@size2 / @baseNum, rem);
+}
+
+.padding (@size1, @size2, @size3) {
+  padding: unit(@size1 / @baseNum, rem) unit(@size2 / @baseNum, rem) unit(@size3 / @baseNum, rem);
+}
+
+.padding (@size1, @size2, @size3, @size4) {
+  padding: unit(@size1 / @baseNum, rem) unit(@size2 / @baseNum, rem) unit(@size3 / @baseNum, rem) unit(@size4 / @baseNum, rem);
+}
+
+//边框
+.border (@width, @color, @radio: 0, @type: solid) {
+  border: @type unit(@width / @baseNum, rem) @color;
+  border-radius: unit(@radio / @baseNum, rem);
+}
+
+.borderRa (@radio) {
+  border-radius: unit(@radio / @baseNum, rem);
+}
+
+

@@ -11,6 +11,7 @@
     .width(240px);
     .fBox(@dire: column, @justify: flex-start);
     background: @menuBC;
+    overflow-y: auto;
 
     .logoBox {
       .fBox(@justify: center);
@@ -30,23 +31,17 @@
       }
     }
 
-    .menuBox {
+    .toggleMenu {
       .width(100%);
-      .flex();
-      .fBox(@dire: column);
+      .height(30px);
+      .fBox(@dire: column, @justify: center);
+      background: fade(@whiteC, 10%);
 
-      .toggleMenu {
-        .width(100%);
-        .height(30px);
-        .fBox(@dire: column, @justify: center);
-        background: fade(@whiteC, 10%);
-
-        .line {
-          .width(18px);
-          .height(2px);
-          .margin(2px, 0px);
-          background: @menuTC;
-        }
+      .line {
+        .width(18px);
+        .height(2px);
+        .margin(2px, 0px);
+        background: @menuTC;
       }
     }
   }
@@ -60,6 +55,20 @@
     .test {
       .width(195px);
       .height(195px);
+    }
+
+    .test2 {
+      width: 300px;
+      height: 200px;
+      background: #ad75ff;
+      overflow: hidden;
+
+      .test3 {
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, .4);
+        overflow-y: auto;
+      }
     }
   }
 }

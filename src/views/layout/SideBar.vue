@@ -8,14 +8,12 @@
       <img class="logo" src="../../assets/Mili.svg" alt="logo">
       <h4 class="title">Mili管理系统</h4>
     </div>
-    <div class="menuBox">
-      <div class="toggleMenu">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-      </div>
-      <SideBarMenu :source="menuData" />
+    <div class="toggleMenu">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
     </div>
+    <SideBarMenu :source="menuData" />
   </div>
 </template>
 
@@ -67,6 +65,24 @@
           children: []
         }, {
           id: 33,
+          text: '结算管理3',
+          pathName: '/app/schoolstatistics',
+          icon: {com: require('../../assets/menuIcon/Banner_nor.svg'), active: require('../../assets/menuIcon/Banner_active.svg')},
+          children: []
+        }, {
+          id: 34,
+          text: '结算管理1',
+          pathName: '/app/studentstatistics',
+          icon: {com: require('../../assets/menuIcon/complain_n.png'), active: require('../../assets/menuIcon/complain_p.png')},
+          children: []
+        }, {
+          id: 35,
+          text: '结算管理2',
+          pathName: '/app/schoolstatistics',
+          icon: {com: require('../../assets/menuIcon/settlement_n.png'), active: require('../../assets/menuIcon/settlement_p.png')},
+          children: []
+        }, {
+          id: 36,
           text: '结算管理3',
           pathName: '/app/schoolstatistics',
           icon: {com: require('../../assets/menuIcon/Banner_nor.svg'), active: require('../../assets/menuIcon/Banner_active.svg')},

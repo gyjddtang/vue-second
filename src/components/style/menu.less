@@ -1,14 +1,17 @@
 /**
  * Created by Mili on 2017/9/21.
  */
-@time: 1s;
+
+@time: .4s;   //展开折叠子菜单过渡时长
 
 .menuList {
   .width(100%);
   .flex();
+  .fBox(@dire: column, @align: flex-start);
 
   .listItem {
-    //transition: height @time;
+    .width(100%);
+    position: relative;
 
     .menuBox {
       .fBox();
@@ -44,7 +47,7 @@
         .border(6px, transparent);
         border-bottom-width: 0;
         border-top-color: @menuTC;
-        transition: transform .5s;
+        transition: transform @time;
 
         &.active {
           transform: rotate(180deg);
@@ -71,6 +74,12 @@
     }
   }
 
+  .lastListItem {
+    .listItem;
+    .flex();
+    background: @menuBC;
+  }
+
   .subMenu {
     .subListItem {
       .listItem;
@@ -84,16 +93,23 @@
 }
 
 // transition
-//.menu-enter,
-//.menu-leave-to {
-//  opacity: 0;
-//}
-//
-//.menu-enter-active,
-//.menu-leave-active {
-//  transition: opacity @time;
-//}
-//
-//.menu-move {
-//  transition: transform @time;
-//}
+.subMenu-enter,
+.subMenu-leave-to {
+  height: 0;
+  opacity: 0;
+}
+
+.subMenu-enter-active,
+.subMenu-leave-active {
+  height: auto;
+  transition: all @time;
+}
+
+.subMenu-leave-active {
+  position: absolute;
+  width: 100%;
+}
+
+.menu-move {
+  transition: transform @time;
+}

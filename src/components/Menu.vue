@@ -22,7 +22,7 @@
       <!--</ul>-->
     <!--</li>-->
   <!--</transition-group>-->
-  <ul class="menuList">
+  <transition-group name="menu" tag="ul" class="menuList">
     <li v-for="(item, index) of source" class="listItem" :key="'menuItem' + index" @click="menuClick($event, item)">
       <div class="menuBox">
         <img class="icon com" :src="item.icon.com" alt="icon">
@@ -30,17 +30,20 @@
         <p class="text">{{ item.text }}</p>
         <div :class="['arrow', {active: opened === item.id}]" v-if="item.showChildren"></div>
       </div>
-      <ul class="subMenu" v-show="item.showChildren && item.id === opened">
-        <li class="subListItem" v-for="(subItem, subIndex) of item.children" :key="'subMenuItem' + subIndex">
-          <div class="menuBox">
-            <img class="icon com" :src="subItem.icon.com" alt="icon">
-            <img class="icon active" :src="subItem.icon.active" alt="icon">
-            <p class="text">{{ subItem.text }}</p>
-          </div>
-        </li>
-      </ul>
+      <transition name="subMenu">
+        <ul class="subMenu" v-show="item.showChildren && item.id === opened">
+          <li class="subListItem" v-for="(subItem, subIndex) of item.children" :key="'subMenuItem' + subIndex">
+            <div class="menuBox">
+              <img class="icon com" :src="subItem.icon.com" alt="icon">
+              <img class="icon active" :src="subItem.icon.active" alt="icon">
+              <p class="text">{{ subItem.text }}</p>
+            </div>
+          </li>
+        </ul>
+      </transition>
     </li>
-  </ul>
+    <li class="lastListItem" key="lastMenuItem"></li>
+  </transition-group>
 </template>
 
 <script>
@@ -51,7 +54,7 @@
     },
     data () {
       return {
-        opened: 4,
+        opened: 0,
         listItemStyle: {
 
         }

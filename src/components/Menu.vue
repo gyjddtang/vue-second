@@ -23,7 +23,6 @@
         </ul>
       </transition>
     </li>
-    <!--<li class="lastListItem" key="lastMenuItem"></li>-->
   </transition-group>
 </template>
 

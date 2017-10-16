@@ -2,7 +2,7 @@
  * Created by Mili on 2017/9/21.
  */
 
-@time: .3s;   //展开折叠子菜单过渡时长
+@time: .2s;   //展开折叠子菜单过渡时长
 
 .menuList {
   .width(100%);
@@ -74,12 +74,6 @@
     }
   }
 
-  .lastListItem {
-    .listItem;
-    .flex();
-    background: @menuBC;
-  }
-
   .subMenu {
     .subListItem {
       .listItem;
@@ -95,15 +89,14 @@
 // transition
 .subMenu-enter,
 .subMenu-leave-to {
-  //opacity: 0;
-  height: 0;
+  transform-origin: top;
+  transform: scaleY(0);
 }
 
 .subMenu-enter-active,
 .subMenu-leave-active {
-  overflow: hidden;
-  height: auto;
-  transition: all @time;
+  transform-origin: top;
+  transition: transform @time;
 }
 
 .subMenu-leave-active {

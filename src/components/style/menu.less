@@ -2,12 +2,12 @@
  * Created by Mili on 2017/9/21.
  */
 
-@time: .4s;   //展开折叠子菜单过渡时长
+@time: .3s;   //展开折叠子菜单过渡时长
 
 .menuList {
   .width(100%);
   .flex();
-  .fBox(@dire: column, @align: flex-start);
+  .fBox(@dire: column, @justify: flex-start);
 
   .listItem {
     .width(100%);
@@ -34,7 +34,7 @@
         }
       }
 
-      .text {
+      .word {
         .flex(1);
         .font(16px, @menuTC);
         .marginL(10px);
@@ -67,7 +67,7 @@
           }
         }
 
-        .text {
+        .word {
           color: @whiteC;
         }
       }
@@ -95,21 +95,22 @@
 // transition
 .subMenu-enter,
 .subMenu-leave-to {
+  //opacity: 0;
   height: 0;
-  opacity: 0;
 }
 
 .subMenu-enter-active,
 .subMenu-leave-active {
+  overflow: hidden;
   height: auto;
   transition: all @time;
 }
 
 .subMenu-leave-active {
   position: absolute;
-  width: 100%;
+  .width(100%);
 }
 
-.menu-move {
+.asideBarmenu-move {
   transition: transform @time;
 }

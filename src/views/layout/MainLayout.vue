@@ -4,25 +4,21 @@
 
 <template lang='html'>
   <div class='mainLayout'>
-    <SideBar />
-    <div class='rightContainer'>
+    <AsideBar />
+    <section class='rightContainer'>
       <p>我是右边的内容</p>
-      <div class='test' ref="div1" :style='{background: testColor}'></div>
-      <div class="test2">
-        <div class="test3">测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试</div>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
-  import SideBar from './SideBar'
+  import AsideBar from './AsideBar'
   import { randomColor } from '../../units/common'
 
   export default {
     name: 'mainLayout',
     components: {
-      SideBar
+      AsideBar
     },
     data () {
       return {

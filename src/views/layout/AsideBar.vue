@@ -13,12 +13,12 @@
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    <SideBarMenu :source="menuData" />
+    <AsideBarMenu :source="menuData" />
   </div>
 </template>
 
 <script>
-  import SideBarMenu from '../../components/Menu'
+  import AsideBarMenu from '../../components/Menu'
   let data = [
     {
       id: 1,
@@ -131,9 +131,9 @@
   ]
 
   export default {
-    name: 'sideBar',
+    name: 'asideBar',
     components: {
-      SideBarMenu
+      AsideBarMenu
     },
     data () {
       return {

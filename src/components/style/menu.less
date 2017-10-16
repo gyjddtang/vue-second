@@ -11,6 +11,7 @@
 
   .listItem {
     .width(100%);
+    .paddingT(15px);
     position: relative;
 
     .menuBox {
@@ -75,6 +76,8 @@
   }
 
   .subMenu {
+    background: @menuSubBC;
+
     .subListItem {
       .listItem;
 
@@ -105,5 +108,5 @@
 }
 
 .asideBarmenu-move {
-  transition: transform @time;
+  transition: transform @time + 0.05;
 }

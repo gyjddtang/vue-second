@@ -13,7 +13,7 @@
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    <AsideBarMenu :source="menuData" />
+    <AsideBarMenu :source="menuData" defaultActive="/app/voice" />
   </div>
 </template>
 
@@ -23,20 +23,20 @@
     {
       id: 1,
       text: '主播管理',
-      pathName: '/app/anchor/list',
+      path: '/app/anchor/list',
       icon: {com: require('../../assets/menuIcon/Anchor_nor.svg'), active: require('../../assets/menuIcon/Anchor_active.svg')},
       showChildren: false,
       children: [
         {
           id: 11,
           text: '专辑列表',
-          pathName: '/app/anchor/album/list',
+          path: '/app/anchor/album/list',
           icon: {com: require('../../assets/menuIcon/Anchor_nor.svg'), active: require('../../assets/menuIcon/Anchor_active.svg')},
           children: [
             {
               id: 12,
               text: '节目列表',
-              pathName: '/app/anchor/album/program',
+              path: '/app/anchor/album/program',
               icon: {com: require('../../assets/menuIcon/Anchor_nor.svg'), active: require('../../assets/menuIcon/Anchor_active.svg')},
               children: []
             }
@@ -47,26 +47,26 @@
     {
       id: 2,
       text: '结算管理',
-      pathName: '',
+      path: '',
       icon: {com: require('../../assets/menuIcon/settlement_n.png'), active: require('../../assets/menuIcon/settlement_p.png')},
       showChildren: true,
       children: [
         {
           id: 31,
           text: '结算管理1',
-          pathName: '/app/studentstatistics',
+          path: '/app/studentstatistics',
           icon: {com: require('../../assets/menuIcon/complain_n.png'), active: require('../../assets/menuIcon/complain_p.png')},
           children: []
         }, {
           id: 32,
           text: '结算管理2',
-          pathName: '/app/schoolstatistics',
+          path: '/app/schoolstatistics',
           icon: {com: require('../../assets/menuIcon/settlement_n.png'), active: require('../../assets/menuIcon/settlement_p.png')},
           children: []
         }, {
           id: 33,
           text: '结算管理3',
-          pathName: '/app/schoolstatistics',
+          path: '/app/schoolstatistics',
           icon: {com: require('../../assets/menuIcon/Banner_nor.svg'), active: require('../../assets/menuIcon/Banner_active.svg')},
           children: []
         }
@@ -75,7 +75,7 @@
     {
       id: 3,
       text: '投诉管理',
-      pathName: '/app/complaint',
+      path: '/app/complaint',
       icon: {com: require('../../assets/menuIcon/complain_n.png'), active: require('../../assets/menuIcon/complain_p.png')},
       showChildren: false,
       children: []
@@ -83,20 +83,20 @@
     {
       id: 4,
       text: 'Banner管理',
-      pathName: '/app/banner',
+      path: '',
       icon: {com: require('../../assets/menuIcon/Banner_nor.svg'), active: require('../../assets/menuIcon/Banner_active.svg')},
       showChildren: true,
       children: [
         {
           id: 41,
           text: 'Banner管理1',
-          pathName: '/app/banner1',
+          path: '/app/banner1',
           icon: {com: require('../../assets/menuIcon/complain_n.png'), active: require('../../assets/menuIcon/complain_p.png')},
           children: []
         }, {
           id: 42,
           text: 'Banner管理2',
-          pathName: '/app/banner2',
+          path: '/app/banner2',
           icon: {com: require('../../assets/menuIcon/settlement_n.png'), active: require('../../assets/menuIcon/settlement_p.png')},
           children: []
         }
@@ -106,7 +106,7 @@
       id: 5,
       text: '语音抬头',
       icon: {com: require('../../assets/menuIcon/voice_n.png'), active: require('../../assets/menuIcon/voice_p.png')},
-      pathName: '/app/voice',
+      path: '/app/voice',
       showChildren: false,
       children: []
     }

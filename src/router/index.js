@@ -13,7 +13,8 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: Login
-    }, {
+    },
+    {
       path: '/app',
       name: 'App',
       redirect: '/app/anchor',
@@ -23,13 +24,15 @@ export default new Router({
           path: 'anchor',
           name: 'Anchor',
           component: Anchor
-        }, {
+        },
+        {
           path: '*',
-          name: 'Err404',
+          name: '404',
           component: Err404
         }
       ]
-    }, {
+    },
+    {
       path: '*',
       name: 'Err404',
       component: Err404

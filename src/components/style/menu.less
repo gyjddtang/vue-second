@@ -11,7 +11,7 @@
 
   .listItem {
     .width(100%);
-    .paddingT(15px);
+    .paddingT(10px);
     position: relative;
 
     .menuBox {
@@ -55,7 +55,8 @@
         }
       }
 
-      &:hover {
+      &:hover,
+      &.active {
         background: @menuHC;
 
         .icon {
@@ -71,6 +72,10 @@
         .word {
           color: @whiteC;
         }
+      }
+
+      &.active {
+        background: @themeC;
       }
     }
   }

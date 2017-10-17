@@ -6,7 +6,7 @@
   <div class='mainLayout'>
     <AsideBar />
     <section class='rightContainer'>
-      <p>我是右边的内容</p>
+      <router-view></router-view>
     </section>
   </div>
 </template>

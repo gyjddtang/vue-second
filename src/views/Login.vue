@@ -1,12 +1,12 @@
 <template>
   <div class="hello">
-    <router-link to="layout">mainLayout</router-link>
+    <router-link to="app">登录</router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'login',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'

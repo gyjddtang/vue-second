@@ -69,24 +69,6 @@
           pathName: '/app/schoolstatistics',
           icon: {com: require('../../assets/menuIcon/Banner_nor.svg'), active: require('../../assets/menuIcon/Banner_active.svg')},
           children: []
-        }, {
-          id: 34,
-          text: '结算管理1',
-          pathName: '/app/studentstatistics',
-          icon: {com: require('../../assets/menuIcon/complain_n.png'), active: require('../../assets/menuIcon/complain_p.png')},
-          children: []
-        }, {
-          id: 35,
-          text: '结算管理2',
-          pathName: '/app/schoolstatistics',
-          icon: {com: require('../../assets/menuIcon/settlement_n.png'), active: require('../../assets/menuIcon/settlement_p.png')},
-          children: []
-        }, {
-          id: 36,
-          text: '结算管理3',
-          pathName: '/app/schoolstatistics',
-          icon: {com: require('../../assets/menuIcon/Banner_nor.svg'), active: require('../../assets/menuIcon/Banner_active.svg')},
-          children: []
         }
       ]
     },

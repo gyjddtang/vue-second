@@ -13,19 +13,20 @@
       <div class="line"></div>
       <div class="line"></div>
     </div>
-    <AsideBarMenu :source="menuData" defaultActive="/app/voice" />
+    <AsideBarMenu :source="menuData"/>
   </div>
 </template>
 
 <script>
   import AsideBarMenu from '../../components/Menu'
-  let data = [
+  import { asyncRouter } from '../../router/index'
+  /** let data = [
     {
       id: 1,
       text: '主播管理',
-      path: '/app/anchor/list',
+      path: '/app/anchor',
       icon: {com: require('../../assets/menuIcon/Anchor_nor.svg'), active: require('../../assets/menuIcon/Anchor_active.svg')},
-      showChildren: false,
+      isDropdown: false,
       children: [
         {
           id: 11,
@@ -49,7 +50,7 @@
       text: '结算管理',
       path: '',
       icon: {com: require('../../assets/menuIcon/settlement_n.png'), active: require('../../assets/menuIcon/settlement_p.png')},
-      showChildren: true,
+      isDropdown: true,
       children: [
         {
           id: 31,
@@ -77,7 +78,7 @@
       text: '投诉管理',
       path: '/app/complaint',
       icon: {com: require('../../assets/menuIcon/complain_n.png'), active: require('../../assets/menuIcon/complain_p.png')},
-      showChildren: false,
+      isDropdown: false,
       children: []
     },
     {
@@ -85,7 +86,7 @@
       text: 'Banner管理',
       path: '',
       icon: {com: require('../../assets/menuIcon/Banner_nor.svg'), active: require('../../assets/menuIcon/Banner_active.svg')},
-      showChildren: true,
+      isDropdown: true,
       children: [
         {
           id: 41,
@@ -107,10 +108,10 @@
       text: '语音抬头',
       icon: {com: require('../../assets/menuIcon/voice_n.png'), active: require('../../assets/menuIcon/voice_p.png')},
       path: '/app/voice',
-      showChildren: false,
+      isDropdown: false,
       children: []
     }
-  ]
+  ] **/
 
   export default {
     name: 'asideBar',
@@ -123,7 +124,7 @@
       }
     },
     mounted () {
-      this.menuData = data
+      this.menuData = asyncRouter
     }
   }
 </script>

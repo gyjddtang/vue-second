@@ -4,20 +4,21 @@
 
 <template lang="html">
   <transition-group name="asideBarmenu" tag="ul" class="menuList">
-    <li v-for="(item, index) of source" class="listItem" :key="'menuItem' + index" @click="menuClick($event, item)">
-      <div :class="['menuBox', { active: item.path === defaultActive }]">
+    <li v-for="(item, index) of source" v-if="item.isShow" class="listItem" :key="'menuItem' + index">
+      <div :class="['menuBox', { active: activate === item.name }]" @click="menuClick(item)">
         <img class="icon com" :src="item.icon.com" alt="icon">
         <img class="icon active" :src="item.icon.active" alt="icon">
-        <p class="word">{{ item.text }}</p>
-        <div :class="['arrow', { active: opened === item.id }]" v-if="item.showChildren"></div>
+        <p class="word">{{ item.name }}</p>
+        <div :class="['arrow', { active: opened === item.name }]" v-if="item.isDropdown"></div>
       </div>
+      <!--折叠菜单-->
       <transition name="subMenu">
-        <ul class="subMenu" v-show="item.showChildren && item.id === opened">
+        <ul class="subMenu" v-if="item.isDropdown && item.name === opened">
           <li v-for="(subItem, subIndex) of item.children" class="subListItem" :key="'subMenuItem' + subIndex">
-            <div :class="['menuBox', { active: subItem.path === defaultActive }]">
+            <div :class="['menuBox', { active: activate === subItem.name }]" @click="menuClick(subItem)">
               <img class="icon com" :src="subItem.icon.com" alt="icon">
               <img class="icon active" :src="subItem.icon.active" alt="icon">
-              <p class="word">{{ subItem.text }}</p>
+              <p class="word">{{ subItem.name }}</p>
             </div>
           </li>
         </ul>
@@ -30,29 +31,36 @@
   export default {
     name: 'menu',
     props: {
-      source: Array,   // menu数据源
-      defaultActive: String   // 默认选中项
+      source: Array
     },
     data () {
       return {
-        opened: 0,
-        listItemStyle: {
-
-        }
+        activate: void 0,
+        opened: void 0
       }
     },
     watch: {
-      source: function (val) {
+      $route (val) {
+        this.findMenu(val)
       }
     },
     mounted () {
+      this.findMenu(this.$route)
     },
     methods: {
-      menuClick (e, item) {
-        if (this.opened === item.id) {
-          this.opened = -1
+      findMenu ({ name, matched }) {
+        let navLeave = matched.filter((item) => {
+          return item.name
+        })
+        this.opened = navLeave[0].name
+        this.activate = name
+      },
+
+      menuClick (item) {
+        if (item.isDropdown) {
+          this.opened = this.opened === item.name ? '' : item.name
         } else {
-          this.opened = item.id
+          this.$router.push({ name: item.name })
         }
       }
     }

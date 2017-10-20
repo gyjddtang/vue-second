@@ -133,4 +133,13 @@ function randomColor () {
   return color
 }
 
-export { strEscape, getKey, dateFormat, secondsFormat, getStyle, moneyFormat, oneOf, randomColor }
+// sessionStorage
+function getStorage (item) {
+  return sessionStorage.getItem(item)
+}
+
+function setStorage (item, value) {
+  sessionStorage.setItem(item, value)
+}
+
+export { strEscape, getKey, dateFormat, secondsFormat, getStyle, moneyFormat, oneOf, randomColor, getStorage, setStorage }

@@ -77,11 +77,15 @@
   margin-right: unit(@size / @baseNum, rem);
 }
 
+.margin (@size1) {
+  margin: unit(@size1 / @baseNum, rem);
+}
+
 .margin (@size1, @size2) when (@size2 = auto) {
   margin: unit(@size1 / @baseNum, rem) @size2;
 }
 
-.margin (@size1, @size2: 0px) when (ispixel(@size2)) {
+.margin (@size1, @size2) when (ispixel(@size2)) {
   margin: unit(@size1 / @baseNum, rem) unit(@size2 / @baseNum, rem);
 }
 
@@ -110,11 +114,15 @@
   padding-right: unit(@size / @baseNum, rem);
 }
 
+.padding (@size1) {
+  padding: unit(@size1 / @baseNum, rem);
+}
+
 .padding (@size1, @size2) when (@size2 = auto) {
   padding: unit(@size1 / @baseNum, rem) @size2;
 }
 
-.padding (@size1, @size2: 0px) when (ispixel(@size2)) {
+.padding (@size1, @size2) when (ispixel(@size2)) {
   padding: unit(@size1 / @baseNum, rem) unit(@size2 / @baseNum, rem);
 }
 
@@ -127,7 +135,7 @@
 }
 
 //边框
-.border (@width, @color, @radio: 0px, @type: solid) {
+.border (@width: 1px, @color, @radio: 0, @type: solid) {
   border: @type unit(@width / @baseNum, rem) @color;
   border-radius: unit(@radio / @baseNum, rem);
 }

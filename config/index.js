@@ -27,7 +27,18 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/wisdomradio': {
+        // target: 'https://jy-pre.gznb.com',
+        // target: 'https://jy-radio.gznb.com',
+        target: 'http://10.66.120.69:28083',
+        changeOrigin: true,
+        // pathRewrite: {
+        //   '/wisdomradio': ''
+        // },
+        logLevel: 'debug'
+      }
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)

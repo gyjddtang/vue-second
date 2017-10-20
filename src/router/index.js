@@ -56,9 +56,10 @@ export const asyncRouter = [
       }
     ]
   }, {
-    name: '语音抬头',
-    icon: { com: _require('voice_n.png'), active: _require('voice_p.png') },
     path: 'voice',
+    name: '语音抬头',
+    component: _import('Voice'),
+    icon: { com: _require('voice_n.png'), active: _require('voice_p.png') },
     isShow: true,
     isDropdown: false
   }, {

@@ -28,7 +28,7 @@ xAxios.interceptors.request.use(config => {
   Promise.reject(error)
 })
 
-// request响应拦截器
+// response响应拦截器
 xAxios.interceptors.response.use(response => {
   let { data } = response
   if (!data.succeed) {

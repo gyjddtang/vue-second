@@ -13,7 +13,7 @@
       </div>
       <!--折叠菜单-->
       <transition name="subMenu">
-        <ul class="subMenu" v-if="item.isDropdown && item.name === opened">
+        <ul class="subMenu" v-show="item.isDropdown && item.name === opened">
           <li v-for="(subItem, subIndex) of item.children" class="subListItem" :key="'subMenuItem' + subIndex">
             <div :class="['menuBox', { active: activate === subItem.name }]" @click="menuClick(subItem)">
               <img class="icon com" :src="subItem.icon.com" alt="icon">

@@ -7,7 +7,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -31,7 +31,7 @@ module.exports = {
       '/wisdomradio': {
         // target: 'https://jy-pre.gznb.com',
         // target: 'https://jy-radio.gznb.com',
-        target: 'http://10.66.120.69:28083',
+        target: 'http://10.66.120.63:28083',
         changeOrigin: true,
         // pathRewrite: {
         //   '/wisdomradio': ''

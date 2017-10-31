@@ -1,25 +1,25 @@
-<!--
-  - Created by Mili on 2017/10/20
- -->
-
-<template lang="html">
-  <div class="voiceContainer">
-  </div>
-</template>
-
 <script>
   export default {
     name: 'voice',
     data () {
       return {
-        num: 5
+        num: 10
       }
     },
     mounted () {
+      console.log(process.env.NODE_ENV)   // 运行的环境
     },
     methods: {
       test () {
+        console.log('test')
       }
+    },
+    render (h) {
+      return (
+        <div class="voiceContainer">
+          <h1 onClick={ this.test }>{ this.num }</h1>
+        </div>
+      )
     }
   }
 </script>

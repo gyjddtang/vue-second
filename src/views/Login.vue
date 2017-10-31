@@ -1,10 +1,10 @@
 <template>
   <div class="loginContainer">
-    <el-form :model="loginForm" label-width="100px" ref="loginForm" @submit.native.prevent="formSubmit">
-      <el-form-item label="用户名">
+    <el-form :model="loginForm" :rules="loginRules" status-icon label-width="100px" ref="loginForm" @submit.native.prevent="formSubmit">
+      <el-form-item label="用户名" prop="phone">
         <el-input v-model.trim="loginForm.phone"></el-input>
       </el-form-item>
-      <el-form-item label="密码">
+      <el-form-item label="密码" prop="password">
         <el-input v-model.trim="loginForm.password" :maxlength="12" type="password"></el-input>
       </el-form-item>
       <el-form-item>
@@ -23,15 +23,15 @@
     data () {
       return {
         loginForm: {
-          phone: 'admin',
-          password: 'gznb314159'
+          phone: void 0,
+          password: void 0
         },
         loginRules: {
           phone: [
-            { required: true, trigger: 'blur' }
+            { required: true, message: '请输入账号', trigger: 'blur' }
           ],
-          passwordNum: [
-            { validator: this.pasValidator, trigger: 'blur' },
+          password: [
+            { required: true, message: '请输入密码', trigger: 'blur' },
             { min: 6, max: 12, message: '长度为6-12位' }
           ]
         }

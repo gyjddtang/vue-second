@@ -10,6 +10,7 @@
 @menuTC: #8492A6;   // 菜单文本
 @menuHC: #3D506C;   // 菜单hover
 @menuSubBC: #1F2D3D;   // 子菜单背景
+@textC1: #8492a6;   // text Color 1
 
 /****
  ** 弹性盒子
@@ -42,6 +43,14 @@
 
 .width (@size) when (ispixel(@size)) {
   width: unit(@size / @baseNum, rem);
+}
+
+.minW (@size) when (ispercentage(@size)) {
+  min-width: @size;
+}
+
+.minW (@size) when (ispixel(@size)) {
+  min-width: unit(@size / @baseNum, rem);
 }
 
 .height (@size) when (ispercentage(@size)) {
@@ -144,4 +153,19 @@
   border-radius: unit(@radio / @baseNum, rem);
 }
 
+.borderT (@width: 1px, @color, @type: solid) {
+  border-top: unit(@width / @baseNum, rem) @color @type;
+}
+
+.borderB (@width: 1px, @color, @type: solid) {
+  border-bottom: unit(@width / @baseNum, rem) @color @type;
+}
+
+.borderL (@width: 1px, @color, @type: solid) {
+  border-left: unit(@width / @baseNum, rem) @color @type;
+}
+
+.borderR (@width: 1px, @color, @type: solid) {
+  border-right: unit(@width / @baseNum, rem) @color @type;
+}
 

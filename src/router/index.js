@@ -15,7 +15,7 @@ Vue.use(Router)
 export const asyncRouter = [
   {
     path: 'anchor',
-    name: '主播管理',
+    name: '管理1',
     component: _import('Anchor'),
     icon: { com: _require('Anchor_nor.svg'), active: _require('Anchor_active.svg') },
     isShow: true,
@@ -36,7 +36,7 @@ export const asyncRouter = [
     ]
   }, {
     path: 'banner',
-    name: 'Banner管理',
+    name: '管理2',
     component: _import('layout/Frame'),
     redirect: 'banner/banner1',
     icon: { com: _require('Banner_nor.svg'), active: _require('Banner_active.svg') },
@@ -57,7 +57,7 @@ export const asyncRouter = [
     ]
   }, {
     path: 'voice',
-    name: '语音抬头',
+    name: '管理3',
     component: _import('Voice'),
     icon: { com: _require('voice_n.png'), active: _require('voice_p.png') },
     isShow: true,

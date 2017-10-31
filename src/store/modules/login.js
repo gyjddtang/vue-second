@@ -1,6 +1,6 @@
 import { signIn } from '../../api/login'
 
-const login = {
+let login = {
   namespaced: true,
   state: {
     user: sessionStorage.getItem('user'),

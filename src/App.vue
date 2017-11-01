@@ -11,11 +11,5 @@ export default {
 </script>
 
 <style lang="less">
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    height: 100%;
-  }
-  @import "./views/style/index.less";
+  @import "style/index.less";
 </style>

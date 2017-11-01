@@ -115,6 +115,17 @@
   }
 }
 
+// main router-view transition
+.routerView-enter,
+.routerView-leave-to {
+  opacity: 0;
+}
+
+.routerView-enter-active,
+.routerView-leave-active {
+  transition: opacity @time;
+}
+
 // 视图组件嵌套容器
 .frameContainer {
   .height(100%);

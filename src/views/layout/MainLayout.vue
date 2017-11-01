@@ -11,7 +11,9 @@
       <HeaderBar />
       <main>
         <BreadBar />
-        <router-view></router-view>
+        <transition name="routerView" mode="out-in">
+          <router-view></router-view>
+        </transition>
       </main>
     </el-col>
   </el-row>

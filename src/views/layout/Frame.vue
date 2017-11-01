@@ -1,6 +1,8 @@
 <template lang="html">
   <div class="frameContainer">
-    <router-view></router-view>
+    <transition name="routerView" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="loginContainer">
+  <section class="loginContainer">
     <el-form :model="loginForm" :rules="loginRules" status-icon label-width="100px" ref="loginForm" @submit.native.prevent="formSubmit">
       <el-form-item label="用户名" prop="phone">
         <el-input v-model.trim="loginForm.phone"></el-input>
@@ -11,7 +11,7 @@
         <el-button type="primary" native-type="submit">登录</el-button>
       </el-form-item>
     </el-form>
-  </div>
+  </section>
 </template>
 
 <script>

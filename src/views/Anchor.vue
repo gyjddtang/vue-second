@@ -3,7 +3,7 @@
  -->
 
 <template lang="html">
-  <div class="anchor">
+  <section class="anchor">
     <TableBar
       :listQuery.sync="listQuery"
       @getData="getData"
@@ -43,7 +43,7 @@
         </el-table-column>
       </el-table>
     </TableBar>
-  </div>
+  </section>
 </template>
 
 <script>

@@ -5,21 +5,25 @@
 <template lang="html">
   <transition-group name="asideBarmenu" tag="ul" class="menuList">
     <li v-for="(item, index) of source" v-if="item.isShow" class="listItem" :key="'menuItem' + index">
-      <div :class="['menuBox', { active: activate === item.name }]" @click="menuClick(item)">
-        <img class="icon com" :src="item.icon.com" alt="icon">
-        <img class="icon active" :src="item.icon.active" alt="icon">
-        <p class="word" v-show="showMenu">{{ item.name }}</p>
-        <div :class="['arrow', { active: opened === item.name }]" v-show="item.isDropdown"></div>
-      </div>
-      <!--折叠菜单-->
+      <el-tooltip effect="dark" :content="item.name" placement="right" :disabled="showMenu">
+        <div :class="['menuBox', { active: activate === item.name }]" @click="menuClick(item)">
+          <img class="icon com" :src="item.icon.com" alt="icon">
+          <img class="icon active" :src="item.icon.active" alt="icon">
+          <p class="word" v-show="showMenu">{{ item.name }}</p>
+          <div :class="['arrow', { active: opened === item.name }]" v-show="item.isDropdown"></div>
+        </div>
+      </el-tooltip>
+        <!--折叠菜单-->
       <transition name="subMenu">
         <ul class="subMenu" v-show="item.isDropdown && item.name === opened">
           <li v-for="(subItem, subIndex) of item.children" class="subListItem" :key="'subMenuItem' + subIndex">
-            <div :class="['menuBox', { active: activate === subItem.name }]" @click="menuClick(subItem)">
-              <img class="icon com" :src="subItem.icon.com" alt="icon">
-              <img class="icon active" :src="subItem.icon.active" alt="icon">
-              <p class="word" v-show="showMenu">{{ subItem.name }}</p>
-            </div>
+            <el-tooltip effect="dark" :content="subItem.name" placement="right" :disabled="showMenu">
+              <div :class="['menuBox', { active: activate === subItem.name }]" @click="menuClick(subItem)">
+                <img class="icon com" :src="subItem.icon.com" alt="icon">
+                <img class="icon active" :src="subItem.icon.active" alt="icon">
+                <p class="word" v-show="showMenu">{{ subItem.name }}</p>
+              </div>
+            </el-tooltip>
           </li>
         </ul>
       </transition>

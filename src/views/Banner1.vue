@@ -3,10 +3,10 @@
  -->
 
 <template lang="html">
-  <div>
+  <section>
     <p>我是 Banner1</p>
     <p>我是 Banner1</p>
-  </div>
+  </section>
 </template>
 
 <script>

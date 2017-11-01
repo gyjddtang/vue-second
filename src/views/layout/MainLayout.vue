@@ -9,10 +9,10 @@
     </el-col>
     <el-col :span="showMenu ? 20 : 23" class='rightContainer'>
       <HeaderBar />
-      <section class="content">
+      <main>
         <BreadBar />
         <router-view></router-view>
-      </section>
+      </main>
     </el-col>
   </el-row>
 </template>

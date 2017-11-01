@@ -8,8 +8,8 @@
       <div :class="['menuBox', { active: activate === item.name }]" @click="menuClick(item)">
         <img class="icon com" :src="item.icon.com" alt="icon">
         <img class="icon active" :src="item.icon.active" alt="icon">
-        <p class="word">{{ item.name }}</p>
-        <div :class="['arrow', { active: opened === item.name }]" v-if="item.isDropdown"></div>
+        <p class="word" v-show="showMenu">{{ item.name }}</p>
+        <div :class="['arrow', { active: opened === item.name }]" v-show="item.isDropdown"></div>
       </div>
       <!--折叠菜单-->
       <transition name="subMenu">
@@ -18,7 +18,7 @@
             <div :class="['menuBox', { active: activate === subItem.name }]" @click="menuClick(subItem)">
               <img class="icon com" :src="subItem.icon.com" alt="icon">
               <img class="icon active" :src="subItem.icon.active" alt="icon">
-              <p class="word">{{ subItem.name }}</p>
+              <p class="word" v-show="showMenu">{{ subItem.name }}</p>
             </div>
           </li>
         </ul>
@@ -31,7 +31,8 @@
   export default {
     name: 'menu',
     props: {
-      source: Array
+      source: Array,
+      showMenu: Boolean
     },
     data () {
       return {

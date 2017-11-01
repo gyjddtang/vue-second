@@ -2,8 +2,6 @@
  * Created by Mili on 2017/9/21.
  */
 
-@time: .2s;   //展开折叠子菜单过渡时长
-
 .menuList {
   .width(100%);
   .flex();
@@ -21,6 +19,7 @@
       cursor: pointer;
       user-select: none;
       background: @menuBC;
+      transition: all @time;
 
       .icon {
         .width(18px);
@@ -43,11 +42,15 @@
       .arrow {
         .width(0px);
         .height(0px);
-        .marginR(10px);
         .border(6px, transparent);
         border-bottom-width: 0;
         border-top-color: @menuTC;
-        transition: transform @time;
+        position: absolute;
+        top: 2.5rem;
+        right: 5%;
+        transition: all @time;
+        transform: translateY(-50%);
+        transform-origin: top;
 
         &.active {
           transform: rotate(180deg);
@@ -88,6 +91,20 @@
       .menuBox {
         .paddingL(30px);
         background: @menuSubBC;
+      }
+    }
+  }
+}
+
+// menu 折叠样式
+.mainLayout.hideMenu {
+  .asideBar {
+    .menuList {
+      .listItem {
+        .menuBox {
+          .paddingL(0px);
+          .fBox(@justify: center);
+        }
       }
     }
   }

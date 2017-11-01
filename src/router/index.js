@@ -15,7 +15,7 @@ Vue.use(Router)
 export const asyncRouter = [
   {
     path: 'anchor',
-    name: '管理1',
+    name: '管理1管理1管理1',
     component: _import('Anchor'),
     icon: { com: _require('Anchor_nor.svg'), active: _require('Anchor_active.svg') },
     isShow: true,

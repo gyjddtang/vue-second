@@ -8,48 +8,53 @@
 
   .el-col {
     .height(100%);
+    transition: width @time;
   }
 
-  .sideBar {
+  .asideBar {
     .height(100%);
     .fBox(@dire: column, @justify: flex-start);
     background: @menuBC;
     overflow-y: auto;
+    word-break: keep-all;
 
     .logoBox {
       .fBox(@justify: center);
       .height(44px);
       .margin(40px, 0px);
+      .padding(0px, 20px);
       .borderRa(4px);
       background: fade(@whiteC, 5%);
 
       .logo {
         .width(24px);
-        .marginR(10px);
       }
 
       .title {
         .font(14px);
+        .marginL(10px);
       }
     }
 
     .toggleMenu {
       .width(100%);
-      .height(30px);
+      height: 30px;
       .fBox(@dire: column, @justify: center);
       background: fade(@whiteC, 10%);
 
-      .line {
-        .width(18px);
-        .height(2px);
-        .margin(2px, 0px);
-        background: @menuTC;
+      .lineBox {
+        width: 20px;
+        height: 15px;
+        background: linear-gradient(@menuTC 50%, transparent 50%);
+        background-size: 100% 6px;
+        transform: rotate(90deg);
+        transition: transform @time;
+        cursor: pointer;
       }
     }
   }
 
   .rightContainer {
-    .height(100%);
     .fBox(@dire: column, @justify: flex-start);
     background: rgba(173, 117, 255, 0.45);
 
@@ -94,8 +99,36 @@
       }
     }
   }
+
+  &.hideMenu {
+    .asideBar {
+      .logoBox {
+        .padding(0px);
+        .borderRa(0px);
+        .width(100%);
+      }
+
+      .toggleMenu {
+        .lineBox {
+          transform: rotate(0);
+        }
+      }
+    }
+  }
 }
 
 .frameContainer {
   .height(100%);
+}
+
+// asideBar 折叠logo transition
+.asideSystemName-entry,
+.asideSystemName-leave-to {
+  transform: scaleX(0);
+  width: 0;
+}
+
+.asideSystemName-entry-active,
+.asideSystemName-leave-active {
+  transition: all @time;
 }

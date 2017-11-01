@@ -3,28 +3,16 @@
  -->
 
 <template lang='html'>
-  <!--<div class='mainLayout'>-->
-    <!--<AsideBar />-->
-    <!--<div class='rightContainer'>-->
-      <!--<HeaderBar />-->
-      <!--<section class="content">-->
-        <!--<BreadBar />-->
-        <!--<router-view></router-view>-->
-      <!--</section>-->
-    <!--</div>-->
-  <!--</div>-->
-  <el-row class="mainLayout">
-    <el-col :span="4">
-      <AsideBar />
+  <el-row :class="['mainLayout', { hideMenu: !showMenu }]">
+    <el-col :span="showMenu ? 4 : 1">
+      <AsideBar :showMenu.sync="showMenu" />
     </el-col>
-    <el-col :span="20">
-      <div class='rightContainer'>
-        <HeaderBar />
-        <section class="content">
-          <BreadBar />
-          <router-view></router-view>
-        </section>
-      </div>
+    <el-col :span="showMenu ? 20 : 23" class='rightContainer'>
+      <HeaderBar />
+      <section class="content">
+        <BreadBar />
+        <router-view></router-view>
+      </section>
     </el-col>
   </el-row>
 </template>
@@ -44,7 +32,7 @@
     },
     data () {
       return {
-        testColor: void 0
+        showMenu: true
       }
     },
     mounted () {

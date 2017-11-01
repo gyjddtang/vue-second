@@ -13,7 +13,6 @@
 
   .asideBar {
     .height(100%);
-    .fBox(@dire: column, @justify: flex-start);
     background: @menuBC;
     overflow-y: auto;
     word-break: keep-all;
@@ -21,8 +20,7 @@
     .logoBox {
       .fBox(@justify: center);
       .height(44px);
-      .margin(40px, 0px);
-      .padding(0px, 20px);
+      .margin(44px, 20px);
       .borderRa(4px);
       background: fade(@whiteC, 5%);
 
@@ -37,7 +35,6 @@
     }
 
     .toggleMenu {
-      .width(100%);
       height: 30px;
       .fBox(@dire: column, @justify: center);
       background: fade(@whiteC, 10%);
@@ -103,9 +100,10 @@
   &.hideMenu {
     .asideBar {
       .logoBox {
-        .padding(0px);
         .borderRa(0px);
-        .width(100%);
+        .marginL(0px);
+        .marginR(0px);
+        background: transparent;
       }
 
       .toggleMenu {

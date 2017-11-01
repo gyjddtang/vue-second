@@ -45,15 +45,16 @@
       }
     },
     watch: {
-      $route (val) {
-        this.findMenu(val)
+      $route () {
+        this.findMenu()
       }
     },
     mounted () {
-      this.findMenu(this.$route)
+      this.findMenu()
     },
     methods: {
-      findMenu ({ name, matched }) {
+      findMenu () {
+        let { name, matched } = this.$route
         let navLeave = matched.filter((item) => {
           return item.name
         })

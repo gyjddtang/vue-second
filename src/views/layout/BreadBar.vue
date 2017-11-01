@@ -4,16 +4,36 @@
 
 <template lang="html">
   <div class="breadBar">
-    <el-breadcrumb>
-      <el-breadcrumb-item>首页</el-breadcrumb-item>
-      <el-breadcrumb-item>banner</el-breadcrumb-item>
-      <el-breadcrumb-item>banner1</el-breadcrumb-item>
+    <el-breadcrumb v-if="breadData.length != 0">
+      <el-breadcrumb-item  v-for="(item, index) of breadData" :key="'breadCrumb' + index">{{ item.name }}</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'breadBar'
+    name: 'breadBar',
+    data () {
+      return {
+        breadData: []
+      }
+    },
+    watch: {
+      $route () {
+        this.setBreadCrumb()
+      }
+    },
+    mounted () {
+      this.setBreadCrumb()
+    },
+    methods: {
+      setBreadCrumb () {
+        let { matched } = this.$route
+        // 过滤掉没有name的路由，如 /app
+        this.breadData = matched.filter(item => {
+          return item.name
+        })
+      }
+    }
   }
 </script>

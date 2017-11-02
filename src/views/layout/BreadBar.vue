@@ -19,7 +19,7 @@
       }
     },
     watch: {
-      $route () {
+      $route (val) {
         this.setBreadCrumb()
       }
     },

@@ -115,6 +115,11 @@
   }
 }
 
+// 视图组件嵌套容器
+.frameContainer {
+  //.height(100%);
+}
+
 // main router-view transition
 .routerView-enter,
 .routerView-leave-to {
@@ -123,12 +128,7 @@
 
 .routerView-enter-active,
 .routerView-leave-active {
-  transition: opacity @time;
-}
-
-// 视图组件嵌套容器
-.frameContainer {
-  .height(100%);
+  transition: opacity @time ease;
 }
 
 // asideBar 折叠logo transition

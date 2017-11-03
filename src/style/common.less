@@ -31,6 +31,14 @@
   flex: @flex;
 }
 
+/**
+  盒子计算模型
+  @type: border-box | content-box
+ */
+.boxSizing (@type: border-box) {
+  box-sizing: @type;
+}
+
 //文本
 .font (@size: @baseNum; @color: @whiteC; @line: @size) {
   font-size: unit(@size / @baseNum, rem);

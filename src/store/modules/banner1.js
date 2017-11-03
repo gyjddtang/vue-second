@@ -12,7 +12,7 @@ let banner1 = {
   },
 
   mutations: {
-    save (state, payload) {
+    SAVE (state, payload) {
       for (let key in payload) {
         state[key] = payload[key]
       }
@@ -24,7 +24,7 @@ let banner1 = {
       getList(payload)
         .then(({ additionalProperties, data, succeed, msg }) => {
           if (succeed) {
-            commit('save', {
+            commit('SAVE', {
               listData: data,
               dataTotal: additionalProperties.page.totalCount
             })

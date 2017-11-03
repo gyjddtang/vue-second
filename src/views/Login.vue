@@ -15,7 +15,7 @@
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapActions, mapState } from 'vuex'
   import { setStorage } from '../units/common'
 
   export default {
@@ -37,6 +37,11 @@
         }
       }
     },
+    computed: {
+      ...mapState('login', [
+        'addRoutes'
+      ])
+    },
     methods: {
       ...mapActions('login', [
         'login'
@@ -54,6 +59,7 @@
                 setStorage('user', this.loginForm.phone)
                 setStorage('sessionId', additionalProperties.sessionId)
                 setStorage('token', additionalProperties.token)
+//                this.$router.addRoutes(this.addRoutes)   // 动态添加路由
                 this.$router.push('app')
               }, err => {
                 console.log(err)

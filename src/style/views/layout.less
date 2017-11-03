@@ -61,8 +61,16 @@
       .borderB(@color: #e7ebef);
       .padding(@size1: 0px, @size2: 50px);
       .fBox(@justify: flex-end);
-      box-sizing: border-box;
+      .boxSizing();
       background: @whiteC;
+
+      .tags {
+        .flex();
+
+        .routerLink {
+          .marginR(10px);
+        }
+      }
 
       .user {
         .font(@size: 16px, @color: @textC1);

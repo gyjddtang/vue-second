@@ -15,7 +15,7 @@ Vue.use(Router)
 export const asyncRouter = [
   {
     path: 'anchor',
-    name: '管理1管理1管理1',
+    name: '管理1',
     component: _import('Anchor'),
     icon: { com: _require('Anchor_nor.svg'), active: _require('Anchor_active.svg') },
     isShow: true,
@@ -88,6 +88,19 @@ export const constantRouter = [
     isHidden: true
   }
 ]
+//
+// export const constantRouter = [
+//   {
+//     path: '/',
+//     name: 'Login',
+//     component: _import('Login')
+//   }, {
+//     path: '*',
+//     name: 'Err404',
+//     component: _import('404'),
+//     isHidden: true
+//   }
+// ]
 
 export default new Router({
   routes: constantRouter

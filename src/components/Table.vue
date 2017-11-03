@@ -16,7 +16,7 @@
         @size-change="pageSizeChange"
         @current-change="pageCurrentChange"
         :current-page="listQuery.current"
-        :page-sizes="[10, 20, 30, 50]"
+        :page-sizes="listQuery.sizes"
         :page-size="listQuery.size"
         :total="listQuery.total"
         layout="total, sizes, prev, pager, next">
@@ -29,7 +29,18 @@
   export default {
     name: 'tableBar',
     props: {
-      listQuery: Object,   // 数据源
+      listQuery: {
+        type: Object,
+        default: function () {
+          return {
+            current: 1,
+            size: 10,
+            sizes: [10, 20, 30, 50],
+            total: 0,
+            search: ''
+          }
+        }
+      },   // 数据源 { current, size, sizes, total, search, }
       showPagination: {   // 是否显示分页器
         type: Boolean,
         default: true
@@ -66,7 +77,6 @@
       },
 
       pageCurrentChange (val) {
-        console.log(val)
         this.$emit('update:listQuery', { ...this.listQuery, current: val })
         this.$emit('getData')
       }

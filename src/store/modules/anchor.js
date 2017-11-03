@@ -12,7 +12,7 @@ let anchor = {
   },
 
   mutations: {
-    save (state, payload) {
+    SAVE (state, payload) {
       for (let key in payload) {
         state[key] = payload[key]
       }
@@ -24,12 +24,12 @@ let anchor = {
       getList(payload)
         .then(({ additionalProperties, data, succeed, msg }) => {
           if (succeed) {
-            commit('save', {
+            commit('SAVE', {
               dataList: data,
               dataTotal: additionalProperties.page.totalCount
             })
           } else {
-            commit('save', {
+            commit('SAVE', {
               dataList: []
             })
           }

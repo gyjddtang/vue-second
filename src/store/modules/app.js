@@ -16,7 +16,7 @@ let app = {
   },
   actions: {
     addVisited ({ commit, state }, payload) {
-      if (!state.visitedViews.some(ele => ele === payload)) {
+      if (payload !== '404' && !state.visitedViews.some(ele => ele === payload)) {
         commit('SAVE', {
           visitedViews: [ ...state.visitedViews, payload ]
         })

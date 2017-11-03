@@ -5,7 +5,13 @@
 <template lang="html">
   <div class="breadBar">
     <el-breadcrumb v-if="breadData.length != 0">
-      <el-breadcrumb-item  v-for="(item, index) of breadData" :key="'breadCrumb' + index">{{ item.name }}</el-breadcrumb-item>
+      <el-breadcrumb-item
+        v-for="(item, index) of breadData"
+        :key="'breadCrumb' + index"
+        :to="{ name: item.name }"
+      >
+        {{ item.name }}
+      </el-breadcrumb-item>
     </el-breadcrumb>
   </div>
 </template>

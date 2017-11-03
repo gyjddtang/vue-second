@@ -68,23 +68,12 @@
 
       rowKey (row) {
         return row.id
-      },
-
-      renderKK () {
-        return (
-          <h4>是吧，不是吧</h4>
-        )
       }
     },
 
     render () {
-      let kk = (
-        <div>好好说说</div>
-      )
       return (
         <section class="bannerContainer">
-          { kk }
-          { this.renderKK() }
           <TableBar listQuery={ this.listQuery } getData={ this.getData } showFilterBar={ false }>
             <el-table data={ this.listData } row-key={ this.rowKey } slot="table">
               <el-table-column prop="name" label="标题"></el-table-column>

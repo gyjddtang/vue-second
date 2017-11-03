@@ -21,24 +21,34 @@
         :row-key="rowKey"
         slot="table"
       >
+        <el-table-column prop="name" label="使用人">
+          <template slot-scope="{ row }">
+            <router-link :to="{ name: '专辑列表' }">{{ row.name }}</router-link>
+          </template>
+        </el-table-column>
         <el-table-column prop="abumNum" label="专辑数" width="100px">
-          <template slot-scope="scope">
-            <span>{{ scope.row.abumNum ? scope.row.abumNum : '0' }}</span>
+          <template slot-scope="{ row }">
+            <span>{{ nullFormat(row.abumNum) }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="programNum" label="节目数" width="100px">
-          <template slot-scope="scope">
-            <span>{{ scope.row.programNum ? scope.row.programNum : '0' }}</span>
+          <template slot-scope="{ row }">
+            <span>{{ nullFormat(row.programNum) }}</span>
+          </template>
+        </el-table-column>
+        <el-table-column prop="income" label="累计收益">
+          <template slot-scope="{ row }">
+            <span>{{ moneyFormat(row.income) }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="programPushNum" label="节目推送总量" sortable>
-          <template slot-scope="scope">
-            <span>{{ scope.row.programPushNum ? scope.row.programPushNum : '0' }}</span>
+          <template slot-scope="{ row }">
+            <span>{{ nullFormat(row.programPushNum) }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="complaintedTime" label="被投诉次数">
-          <template slot-scope="scope">
-            <span>{{ scope.row.complaintedTime ? scope.row.complaintedTime : '0' }}</span>
+          <template slot-scope="{ row }">
+            <span>{{ nullFormat(row.complaintedTime) }}</span>
           </template>
         </el-table-column>
       </el-table>
@@ -49,6 +59,7 @@
 <script>
   import { mapActions, mapState } from 'vuex'
   import TableBar from '../components/Table'
+  import { moneyFormat, nullFormat, rowKey } from '../units/common'
 
   export default {
     name: 'anchor',
@@ -87,10 +98,9 @@
       ...mapActions('anchor', [
         'getList'
       ]),
-
-      rowKey (row) {
-        return row.id
-      },
+      moneyFormat,
+      nullFormat,
+      rowKey,
 
       dateChange (val) {
         if (val) {

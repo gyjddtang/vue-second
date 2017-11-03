@@ -15,7 +15,7 @@
       </el-tooltip>
         <!--折叠菜单-->
       <transition name="subMenu">
-        <ul class="subMenu" v-show="item.isDropdown && item.name === opened">
+        <ul class="subMenu" v-if="item.isDropdown && item.name === opened">
           <li v-for="(subItem, subIndex) of item.children" class="subListItem" :key="'subMenuItem' + subIndex">
             <el-tooltip effect="dark" :content="subItem.name" placement="right" :disabled="showMenu">
               <div :class="['menuBox', { active: activate === subItem.name }]" @click="menuClick(subItem)">

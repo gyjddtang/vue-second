@@ -1,6 +1,13 @@
 <template>
   <section class="loginContainer">
-    <el-form :model="loginForm" :rules="loginRules" status-icon label-width="100px" ref="loginForm" @submit.native.prevent="formSubmit">
+    <el-form
+      :model="loginForm"
+      :rules="loginRules"
+      status-icon
+      label-width="100px"
+      ref="loginForm"
+      @submit.native.prevent="formSubmit"
+    >
       <el-form-item label="用户名" prop="phone">
         <el-input v-model.trim="loginForm.phone"></el-input>
       </el-form-item>

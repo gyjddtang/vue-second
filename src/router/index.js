@@ -16,15 +16,28 @@ export const asyncRouter = [
   {
     path: 'anchor',
     name: '管理1',
-    component: _import('Anchor'),
+    component: _import('layout/Frame'),
+    redirect: 'anchor/list',
     icon: { com: _require('Anchor_nor.svg'), active: _require('Anchor_active.svg') },
     isShow: true,
     isDropdown: false,
+    props: {
+      name: '管理1'
+    },
     children: [
       {
-        name: '专辑列表',
         path: 'list',
-        icon: { com: _require('Anchor_nor.svg'), active: _require('Anchor_active.svg') },
+        component: _import('Anchor'),
+        props: {
+          name: '管理1'
+        }
+      }, {
+        name: '专辑列表',
+        path: 'album',
+        component: _import('Album'),
+        props: {
+          name: '管理1'
+        },
         children: [
           {
             name: '节目列表',

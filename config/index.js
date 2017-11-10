@@ -28,14 +28,19 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/wisdomradio': {
-        // target: 'https://jy-pre.gznb.com',
-        // target: 'https://jy-radio.gznb.com',
-        target: 'http://10.66.120.63:28083',
+      // '/wisdomradio': {
+      //   // target: 'https://jy-pre.gznb.com',
+      //   // target: 'https://jy-radio.gznb.com',
+      //   target: 'http://10.66.120.63:28083',
+      //   changeOrigin: true,
+      //   // pathRewrite: {
+      //   //   '/wisdomradio': ''
+      //   // },
+      //   logLevel: 'debug'
+      // },
+      '/mockapi': {
+        target: 'http://localhost:3000',
         changeOrigin: true,
-        // pathRewrite: {
-        //   '/wisdomradio': ''
-        // },
         logLevel: 'debug'
       }
     },

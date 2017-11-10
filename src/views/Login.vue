@@ -30,8 +30,8 @@
     data () {
       return {
         loginForm: {
-          phone: void 0,
-          password: void 0
+          phone: 'admin',
+          password: '123456'
         },
         loginRules: {
           phone: [

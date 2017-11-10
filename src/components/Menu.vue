@@ -59,7 +59,7 @@
           return item.name
         })
         this.opened = navLeave[0].name
-        this.activate = name
+        this.activate = navLeave[navLeave.length - 1].props.default ? navLeave[navLeave.length - 1].props.default.name : name
       },
 
       menuClick (item) {

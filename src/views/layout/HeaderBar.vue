@@ -31,31 +31,48 @@
   import { mapActions, mapState } from 'vuex'
   export default {
     name: 'headerBar',
+    data () {
+      return {
+        currentTag: void 0
+      }
+    },
     computed: {
       ...mapState('app', [
         'visitedViews'
-      ]),
-
-      currentTag () {
-        return this.$route.name
-      }
+      ])
     },
     watch: {
       $route (val) {
-        this.addVisited(val.name)
+        this.setVisited()
       }
     },
     mounted () {
-      this.addVisited(this.$route.name)
+      this.setVisited()
     },
     methods: {
       ...mapActions('app', [
         'addVisited',
         'delVisited'
       ]),
+
+      setVisited () {
+        let { matched, name } = this.$route
+        let routeLeave = matched.filter((item) => {
+          return item.name
+        })
+        name = !name ? routeLeave[routeLeave.length - 1].name : name
+        this.currentTag = name
+        this.addVisited(name)
+      },
+
       tagClose (item) {
         this.delVisited(item)
-        if (item === this.$route.name) {
+        let { matched, name } = this.$route
+        let routeLeave = matched.filter((item) => {
+          return item.name
+        })
+        name = !name ? routeLeave[routeLeave.length - 1].name : name
+        if (item === name) {
           this.$router.push({ name: this.visitedViews[this.visitedViews.length - 1] })
         }
       }

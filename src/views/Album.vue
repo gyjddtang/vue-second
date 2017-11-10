@@ -4,12 +4,8 @@
 
 <template lang="html">
   <section class="albumContainer">
-    欢迎来到子级菜单<br>
-    欢迎来到子级菜单<br>
-    欢迎来到子级菜单<br>
-    欢迎来到子级菜单<br>
-    欢迎来到子级菜单<br>
-    欢迎来到子级菜单<br>
+    <p>欢迎来到子级菜单</p>
+    <p>欢迎来到子级菜单</p>
   </section>
 </template>
 

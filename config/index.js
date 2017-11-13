@@ -41,7 +41,10 @@ module.exports = {
       '/mockapi': {
         target: 'http://localhost:3000',
         changeOrigin: true,
-        logLevel: 'debug'
+        logLevel: 'debug',
+        pathRewrite: {
+          '/mockapi': ''
+        }
       }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"

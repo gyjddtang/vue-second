@@ -63,6 +63,10 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
+// 中间模拟服务
+// var route = require('../middleServer/routes')
+// app.use('/mockapi/wisdomradio/pc/manage', route)
+
 var uri = 'http://localhost:' + port
 
 var _resolve

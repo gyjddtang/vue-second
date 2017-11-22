@@ -9,6 +9,11 @@ let xAxios = axios.create({
     'X-Requested-With': 'XMLHttpRequest'
   }
 })
+// application/x-www-form-ulrencoded
+// multipart/form-data
+// application/json
+// text/xml
+xAxios.defaults.headers.post['content-Type'] = 'application/x-www-form-ulrencoded'
 
 // request请求拦截器
 xAxios.interceptors.request.use(config => {
@@ -21,6 +26,7 @@ xAxios.interceptors.request.use(config => {
       config.url = `${config.url}?token=${token}`
     }
   }
+  console.log(config)
   return config
 }, error => {
   // 一些错误是在设置请求的时候触发

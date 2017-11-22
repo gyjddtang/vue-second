@@ -9,7 +9,6 @@
     <p>我是 Banner2</p>
     <p>我是 Banner2</p>
     <p>我是 Banner2</p>
-    <p>我是 Banner2</p>
   </section>
 </template>
 

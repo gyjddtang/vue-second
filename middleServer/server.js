@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 // app.use(multer()) // for parsing multipart/form-data
 
 app.use((req, res, next) => {
+  console.log(req.body)
   console.log(`${req.method} ${req.url} -> ${Date()}`)
   next()
 })

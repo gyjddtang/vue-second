@@ -6,9 +6,12 @@ var Mock = require('mockjs')
 
 var Random = Mock.Random
 Random.cname()
+Random.city(true)
 
 var data = Mock.mock({
-  userName: '@cname'
+  userName: '@cname',
+  date: new Date(),
+  address: '@city'
 })
 
 module.exports = data

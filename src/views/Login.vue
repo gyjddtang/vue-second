@@ -23,7 +23,7 @@
 
 <script>
   import { mapActions, mapState } from 'vuex'
-  import { setStorage } from '../units/common'
+//  import { setStorage } from '../units/common'
 
   export default {
     name: 'login',
@@ -63,9 +63,9 @@
 
             this.login(form)
               .then(({ additionalProperties, data }) => {
-                setStorage('user', this.loginForm.phone)
-                setStorage('sessionId', additionalProperties.sessionId)
-                setStorage('token', additionalProperties.token)
+//                setStorage('user', this.loginForm.phone)
+//                setStorage('sessionId', additionalProperties.sessionId)
+//                setStorage('token', additionalProperties.token)
 //                this.$router.addRoutes(this.addRoutes)   // 动态添加路由
                 this.$router.push('app')
               }, err => {
